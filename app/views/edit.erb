@@ -1,0 +1,15 @@
+<%# This view should contain a form to update a specific article--similar to the form you made for a new article, but the fields should be pre-populated with the existing title and
+%>
+
+<%# <h2><%= @article.title %></h2>
+<%# <p><%= @article.content %></p> %> %>
+
+<form method="post" action="/articles/<%= @article.id %>">
+<input id="hidden" type="hidden" name="_method" value="patch">
+
+<label for="title">Title</label>
+      <input id="title" type="text" name="article[title]" value="<%= @article.title %>" />
+<label for="content">Content</label>
+      <input id="content" type="text" name="article[content]"  value="<%= @article.content %>" />
+<button type="submit">Save</button> 
+</form>
