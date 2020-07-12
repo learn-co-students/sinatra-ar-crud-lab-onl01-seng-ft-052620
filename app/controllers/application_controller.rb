@@ -40,18 +40,25 @@ redirect to "/articles/#{ @article.id }"
   erb :show
 end
 
-get 'articles/:id/edit' do 
-
+get '/articles/:id/edit' do 
+  @article = Article.find_by_id(params[:id])
 
   erb :edit
 end
 
 patch '/articles/:id' do 
-
-erb :edit
+article = Article.find_by_id(params[:id])
+article.update(params[:article])
+ 
+redirect "/articles/#{article.id}"
 end
 
-
+delete '/articles/:id' do
+  @article = Article.find_by_id(params[:id])
+@article.destory
+redirect "/articles"
+erb :delete
+end
 
 
 end
