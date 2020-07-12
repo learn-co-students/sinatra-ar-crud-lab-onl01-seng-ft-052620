@@ -1,0 +1,9 @@
+<h1>Update Article <%=@article.id%></h1>
+<form method="post" action='/articles/<%=@article.id%>'>
+<input id="hidden" type="hidden" name="_method" value="PATCH">
+<p><label for="title">Article Title:</label>
+<input autocomplete="off" type="text" name="title" value="<%=@article.title%>" size="35"></p>
+<p><label for="content">Article Content:</label>
+<textarea name="content"><%=@article.content%></textarea></p>
+<input type="submit" id="submit">
+</form>
