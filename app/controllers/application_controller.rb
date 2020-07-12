@@ -50,13 +50,15 @@ patch '/articles/:id' do
 article = Article.find_by_id(params[:id])
 article.update(params[:article])
  
-redirect "/articles/#{article.id}"
+redirect "/articles/#{ @article.id }"
 end
 
 delete '/articles/:id' do
-  @article = Article.find_by_id(params[:id])
-@article.destory
-redirect "/articles"
+@article = Article.find_by_id(params[:id])
+ @article.destroy
+
+redirect '/articles'
+
 erb :delete
 end
 
