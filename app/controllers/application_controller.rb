@@ -17,27 +17,41 @@ class ApplicationController < Sinatra::Base
     erb :index
   end
 
-  get '/articles/:id' do 
+  get '/articles/new' do 
 
-@article = params[:id]
+    erb :new
+   
+end
+
+get '/articles/:id' do 
+
+@article = Article.find(params[:id])
 
     erb :show
   end
 
-  get '/articles/new' do 
-
-      erb :new
-      binding.pry
-      
-  end
-
+  
   post '/articles' do 
 
- @article = Article.create(params)
+ @article = Article.create(params[:article])
 
 redirect to "/articles/#{ @article.id }"
 
   erb :show
 end
+
+get 'articles/:id/edit' do 
+
+
+  erb :edit
+end
+
+patch '/articles/:id' do 
+
+erb :edit
+end
+
+
+
 
 end
