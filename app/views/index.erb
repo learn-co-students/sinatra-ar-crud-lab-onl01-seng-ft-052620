@@ -1,0 +1,6 @@
+<h2> Hello there, here is a list of all the Articles and their ID's </h2>
+<ul>
+<% @articles.each.with_index(1) do |article, index| %>
+<li><%= "#{index}: #{article.title}"%></li>
+<% end %>
+</ul>
